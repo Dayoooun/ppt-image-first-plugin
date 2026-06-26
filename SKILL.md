@@ -9,6 +9,27 @@ This skill turns a loose PPT request into a consistent, image-first deck workflo
 It is optimized for high-quality full-slide visuals, reliable reference handling, asset-aware prompts,
 review loops, and PPTX assembly.
 
+## Generation Engine
+
+Default generation is **Codex `$imagegen` using GPT-Image 2.0**.
+
+The harness must pass the slide's content lock and the relevant reference images together in the
+same generation packet. Do not generate a generic slide first and then separately "apply" the
+references later. High-quality results depend on sending the model the complete slide brief at once:
+
+- deck purpose and audience
+- exact slide text
+- style reference image(s)
+- product/photo reference image(s)
+- evidence/reference documents when appropriate
+- asset fidelity rules
+- forbidden elements
+- composition goal
+
+If an item must remain pixel-exact, such as a logo, certificate, screenshot, chart label, or small
+evidence text, compose it deterministically after image generation rather than asking GPT-Image 2.0
+to redraw it.
+
 Use it when the user asks for:
 - PPT, deck, presentation, briefing, proposal, report slides, lecture slides, pitch deck, redesign
 - image-based slide generation
@@ -112,6 +133,10 @@ Do not include page numbers in image-generation prompts. Add page numbers later 
 
 Create `prompt_pack.json`.
 
+Each slide prompt is a **single integrated prompt**. It must include both the content and every
+relevant reference image path for that slide. The expected call path is Codex `$imagegen`, either
+directly or through `scripts/parallel_imagegen.mjs`.
+
 Every prompt must have these sections in this order:
 
 ```text
@@ -157,7 +182,11 @@ Prompt rules:
 
 ### 7. Generation and Review
 
-Generate slide images in small batches.
+Generate slide images through Codex `$imagegen` / GPT-Image 2.0.
+
+Use small parallel batches for reliability, but each slide must still be generated from one complete
+content+reference prompt. Do not split "content generation" and "reference styling" into separate
+image passes unless the user explicitly requests experimental variants.
 
 Review each slide for:
 - required text missing or altered

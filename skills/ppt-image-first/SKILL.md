@@ -10,6 +10,23 @@ This plugin skill is the installable entrypoint for the `ppt-image-first` harnes
 For the full workflow, use the repository root `SKILL.md` as the canonical operating guide. The rules
 below are the minimum behavior contract for plugin installations.
 
+## Generation Engine
+
+Default slide generation uses **Codex `$imagegen` with GPT-Image 2.0**.
+
+For each slide, send one integrated generation packet containing:
+- exact slide content
+- deck purpose and audience
+- style reference images
+- product/photo references
+- evidence references when relevant
+- image fidelity rules
+- forbidden elements
+- composition task
+
+Do not generate a generic slide first and apply references afterward. Content and references must be
+passed together for the first high-quality generation pass.
+
 ## Mandatory Harness
 
 For non-trivial decks, create and use these artifacts:
@@ -45,6 +62,8 @@ Every final image prompt must contain:
 - composition task
 - forbidden elements
 - output size
+
+The expected execution path is Codex `$imagegen`, directly or through `scripts/parallel_imagegen.mjs`.
 
 Never include page numbers in image-generation prompts. Add them later in a deterministic assembly step.
 

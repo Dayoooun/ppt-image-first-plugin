@@ -4,6 +4,17 @@ Reference-driven, image-first PPT creation harness for Codex.
 
 See [README.md](README.md) for the full Korean guide.
 
+## Generation Engine
+
+The default generation engine is **Codex `$imagegen` with GPT-Image 2.0**.
+
+Each slide is generated from one integrated packet that includes the slide content, purpose,
+audience, style references, product/photo references, evidence references, fidelity rules, forbidden
+elements, and composition task.
+
+Do not generate a generic slide first and apply references afterward. Content and references should
+be passed together for the first high-quality generation pass.
+
 ## Install
 
 Windows:

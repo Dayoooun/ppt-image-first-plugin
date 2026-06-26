@@ -8,6 +8,27 @@ Reference-driven, image-first PPT creation harness for Codex.
 
 > 누가 사용해도 같은 절차로 일관된 품질의 PPT를 만들 수 있게 한다.
 
+## Generation Engine
+
+기본 생성 엔진은 **Codex `$imagegen` + GPT-Image 2.0**입니다.
+
+중요한 원칙:
+
+> 내용과 레퍼런스 이미지를 따로 처리하지 않고, 한 슬라이드의 콘텐츠/레퍼런스/목적/금지요소를 한 번에 묶어서 생성합니다.
+
+즉, 각 슬라이드 생성 프롬프트에는 아래가 동시에 들어갑니다.
+
+- 발표 목적과 청중
+- 정확히 들어가야 하는 텍스트
+- 스타일 레퍼런스 이미지
+- 제품/공간/브랜드 레퍼런스 이미지
+- 증거 이미지 또는 문서
+- 이미지 충실도 규칙
+- 금지 요소
+- 구도 목표
+
+로고, 증명서, 스크린샷, 작은 글자가 많은 표/차트처럼 픽셀 정확도가 중요한 요소는 GPT-Image 2.0에 다시 그리게 하지 않고, 생성 후 코드/PPT 조립으로 보존합니다.
+
 ## What It Does
 
 - 막연한 PPT 요청을 `deck_brief.md`로 정리
@@ -173,6 +194,9 @@ Defines each slide:
 ### `prompt_pack.json`
 
 Stores final image prompts in a consistent structure.
+
+Each slide prompt is a single integrated prompt for Codex `$imagegen` / GPT-Image 2.0. The content
+and all relevant reference image paths must be included together.
 
 Every prompt should include:
 
