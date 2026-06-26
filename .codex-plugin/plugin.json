@@ -1,0 +1,41 @@
+{
+  "name": "ppt-image-first",
+  "version": "0.1.0",
+  "description": "Universal image-first PPT creation harness for reference-driven, asset-aware presentation decks.",
+  "author": {
+    "name": "NyxTides",
+    "url": "https://github.com/NyxTides"
+  },
+  "homepage": "https://github.com/NyxTides/ppt-image-first",
+  "repository": "https://github.com/NyxTides/ppt-image-first",
+  "license": "Apache-2.0",
+  "keywords": [
+    "ppt",
+    "presentation",
+    "deck",
+    "slides",
+    "image-generation",
+    "design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PPT Image First",
+    "shortDescription": "Reference-driven image-first PPT creation harness.",
+    "longDescription": "Create consistent, high-quality presentation decks from user goals, source materials, reference images, and asset manifests. Includes intake, style cards, slide blueprints, prompt packs, review loops, security rules, and PPTX assembly guidance.",
+    "developerName": "NyxTides",
+    "category": "Productivity",
+    "capabilities": [
+      "Presentation",
+      "Image Generation",
+      "Asset Review",
+      "PPTX Assembly"
+    ],
+    "websiteURL": "https://github.com/NyxTides/ppt-image-first",
+    "defaultPrompt": [
+      "Create a polished PPT from my materials.",
+      "Redesign this deck using my reference image.",
+      "Build an image-first proposal deck."
+    ],
+    "brandColor": "#12351F"
+  }
+}

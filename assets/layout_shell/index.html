@@ -1,0 +1,44 @@
+<!doctype html>
+<!--
+  Layout gallery — loads N per-slide layout HTML files in scaled iframes for batch approval.
+  Drop your slide layout files next to this index (e.g., 01-cover.html, 02-toc.html, ...).
+  Update the SLIDES array below to match.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Layout Gallery</title>
+<style>
+  :root { --tile-w: 896px; --tile-h: 512px; --scale: .5; }
+  body { background:#111; color:#eee; font-family:'Pretendard','Noto Sans KR',sans-serif; margin:0; padding:24px; }
+  h1 { font-size:18px; margin:0 0 16px; letter-spacing:.04em; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, var(--tile-w)); gap:24px; }
+  .tile { background:#fff; width:var(--tile-w); height:var(--tile-h); position:relative; overflow:hidden; border:1px solid #333; }
+  .tile iframe { width:1792px; height:1024px; border:0; transform:scale(var(--scale)); transform-origin: top left; }
+  .label { position:absolute; left:8px; top:8px; background:#000; color:#fff; padding:4px 8px; font-size:12px; border-radius:4px; opacity:.85; }
+  .approve { position:absolute; right:8px; top:8px; }
+</style>
+</head>
+<body>
+<h1>Layout Approval — 1792×1024 (0.5× scaled previews)</h1>
+<div class="grid" id="grid"></div>
+<script>
+  // EDIT: list slide layout files in order.
+  const SLIDES = [
+    { id: "01-cover", file: "01-cover.html" },
+    { id: "02-toc",   file: "02-toc.html"   },
+    // { id: "03-p1", file: "03-p1.html" },
+  ];
+  const grid = document.getElementById("grid");
+  for (const s of SLIDES) {
+    const tile = document.createElement("div");
+    tile.className = "tile";
+    tile.innerHTML = `
+      <span class="label">${s.id}</span>
+      <iframe src="${s.file}" loading="lazy"></iframe>
+    `;
+    grid.appendChild(tile);
+  }
+</script>
+</body>
+</html>

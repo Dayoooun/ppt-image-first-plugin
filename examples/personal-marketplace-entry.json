@@ -1,0 +1,12 @@
+{
+  "name": "ppt-image-first",
+  "source": {
+    "source": "local",
+    "path": "./plugins/ppt-image-first"
+  },
+  "policy": {
+    "installation": "AVAILABLE",
+    "authentication": "ON_INSTALL"
+  },
+  "category": "Productivity"
+}

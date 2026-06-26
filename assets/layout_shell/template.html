@@ -1,0 +1,49 @@
+<!doctype html>
+<!--
+  Layout blueprint template (1792x1024, 16:9).
+  Slots use data-slot, data-anchor (top-left/center/...), and data-weight (visual prominence 1-5).
+  Inner text is the AUDIENCE-FACING copy that must appear verbatim in the generated image.
+  Do NOT put slide IDs / batch labels inside the slots — those belong to data-* attributes.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Layout</title>
+<style>
+  :root { --w: 1792px; --h: 1024px; --safe: 64px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #1a1a1a; display: grid; place-items: center; min-height: 100vh; font-family: 'Pretendard','Noto Sans KR',sans-serif; }
+  .stage { width: var(--w); height: var(--h); background: #fff; position: relative; overflow: hidden; }
+  .stage::before, .stage::after { /* safe-area guides — visible only in layout shell, NOT in render */
+    content: ""; position: absolute; inset: var(--safe); border: 1px dashed rgba(0,0,0,.08); pointer-events: none;
+  }
+  [data-slot] { position: absolute; padding: 12px 16px; border: 1px dashed rgba(0,0,0,.15); background: rgba(0,102,255,.04); }
+  [data-slot="title"]      { color:#000; font-weight:800; }
+  [data-slot="subtitle"]   { color:#444; font-weight:500; }
+  [data-slot="body"]       { color:#222; font-weight:400; line-height:1.5; }
+  [data-slot="kicker"]     { color:#0066ff; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+  [data-slot="caption"]    { color:#666; font-size:14px; }
+  [data-slot="visual"]     { background: rgba(0,102,255,.08); display:grid; place-items:center; color:#0066ff; font-weight:600; }
+  [data-slot="footer"]     { color:#999; font-size:12px; }
+  .render-mode [data-slot] { border: none; background: transparent; }
+  .render-mode .stage::before, .render-mode .stage::after { display:none; }
+</style>
+</head>
+<body>
+  <!--
+    EDIT BELOW. Each [data-slot] block is one anchored region.
+    - style left/top/width/height in PIXELS within 1792x1024.
+    - data-anchor: top-left | top-center | center | bottom-left | bottom-right
+    - data-weight: 1 (subtle) ~ 5 (hero)
+    - Inner text = exact Korean copy to render in the image.
+  -->
+  <div class="stage" data-slide-id="REPLACE_ME" data-layout="hero-left">
+    <div data-slot="kicker"   data-anchor="top-left"   data-weight="2" style="left:96px; top:96px;  width:480px;">키커 텍스트</div>
+    <div data-slot="title"    data-anchor="top-left"   data-weight="5" style="left:96px; top:160px; width:1100px; font-size:96px;">슬라이드 제목을 여기에</div>
+    <div data-slot="subtitle" data-anchor="top-left"   data-weight="3" style="left:96px; top:296px; width:900px;  font-size:32px;">부제 / 한 줄 요약</div>
+    <div data-slot="body"     data-anchor="center-left" data-weight="3" style="left:96px; top:440px; width:780px;  height:380px; font-size:24px;">본문 내용. 핵심 문장 2~3줄을 여기에. 이미지 모델이 이 텍스트를 정확히 렌더링하도록 짧고 명확하게.</div>
+    <div data-slot="visual"   data-anchor="center-right" data-weight="4" style="left:960px; top:200px; width:736px; height:680px;">[VISUAL: 다이어그램/사진/일러스트 묘사]</div>
+    <div data-slot="footer"   data-anchor="bottom-left" data-weight="1" style="left:96px; bottom:48px; width:600px;">출처 / 페이지 번호</div>
+  </div>
+</body>
+</html>
