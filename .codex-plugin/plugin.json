@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "description": "Universal image-first PPT creation harness for reference-driven, asset-aware presentation decks.",
   "author": {
-    "name": "NyxTides",
-    "url": "https://github.com/NyxTides"
+    "name": "Dayoooun",
+    "url": "https://github.com/Dayoooun"
   },
-  "homepage": "https://github.com/NyxTides/ppt-image-first",
-  "repository": "https://github.com/NyxTides/ppt-image-first",
+  "homepage": "https://github.com/Dayoooun/ppt-image-first-plugin",
+  "repository": "https://github.com/Dayoooun/ppt-image-first-plugin",
   "license": "Apache-2.0",
   "keywords": [
     "ppt",
@@ -22,7 +22,7 @@
     "displayName": "PPT Image First",
     "shortDescription": "Reference-driven image-first PPT creation harness.",
     "longDescription": "Create consistent, high-quality presentation decks from user goals, source materials, reference images, and asset manifests. Includes intake, style cards, slide blueprints, prompt packs, review loops, security rules, and PPTX assembly guidance.",
-    "developerName": "NyxTides",
+    "developerName": "Dayoooun",
     "category": "Productivity",
     "capabilities": [
       "Presentation",
@@ -30,7 +30,7 @@
       "Asset Review",
       "PPTX Assembly"
     ],
-    "websiteURL": "https://github.com/NyxTides/ppt-image-first",
+    "websiteURL": "https://github.com/Dayoooun/ppt-image-first-plugin",
     "defaultPrompt": [
       "Create a polished PPT from my materials.",
       "Redesign this deck using my reference image.",

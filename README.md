@@ -31,7 +31,7 @@ Reference-driven, image-first PPT creation harness for Codex.
 ### Windows PowerShell
 
 ```powershell
-git clone https://github.com/NyxTides/ppt-image-first-plugin.git "$env:USERPROFILE\plugins\ppt-image-first"
+git clone https://github.com/Dayoooun/ppt-image-first-plugin.git "$env:USERPROFILE\plugins\ppt-image-first"
 cd "$env:USERPROFILE\plugins\ppt-image-first"
 .\scripts\install.ps1
 ```
@@ -39,7 +39,7 @@ cd "$env:USERPROFILE\plugins\ppt-image-first"
 ### macOS / Linux
 
 ```bash
-git clone https://github.com/NyxTides/ppt-image-first-plugin.git "$HOME/plugins/ppt-image-first"
+git clone https://github.com/Dayoooun/ppt-image-first-plugin.git "$HOME/plugins/ppt-image-first"
 cd "$HOME/plugins/ppt-image-first"
 bash scripts/install.sh
 ```
